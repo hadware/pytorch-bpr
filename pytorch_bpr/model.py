@@ -48,3 +48,9 @@ class BPRLossFunctional:
         xuj = self.scorer(batch_u, batch_j)
         return -F.logsigmoid(xui - xuj).sum()
 
+
+class BPR:
+
+    def __init__(self, scorer : Scorer, model : torch.Module):
+        self.scorer = scorer
+        self.model = model
